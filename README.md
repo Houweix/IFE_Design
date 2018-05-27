@@ -1,2 +1,2 @@
-# IFE_MVVM
-MVVM学院
+# IFE_设计师
+M设计师学院
