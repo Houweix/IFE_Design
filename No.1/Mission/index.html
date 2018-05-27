@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>No.1 - 制作一个简单的菜单动画效果</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .btn {
+            border: 1px solid #ccc;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+
+            outline-style: none;
+            padding: 5px;
+            background: #ffffff;
+            cursor: pointer;
+        }
+
+        .text {
+            position: relative;
+            display: inline-block;
+            padding: 20px 0;
+            margin: 40px auto;
+            font-size: 24px;
+            color: #333;
+            transition: color .4s;
+        }
+
+        .text:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: #69e8ff;
+            transition: width .4s;
+        }
+
+        .text.active {
+            color: #69e8ff;
+        }
+
+        .text.active:after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<h1 class="text">howuei棒棒哒</h1>
+<br/>
+<button class="btn">点我~</button>
+<script>
+
+    // 按钮点击逻辑
+    document.querySelector('.btn').onclick = function () {
+        // 添加样式名触发过渡动效
+        document.querySelector('.text').classList.toggle('active');
+
+    }
+</script>
+</body>
+</html>
