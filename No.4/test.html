@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS3</title>
+    <style>
+        .container {
+            position: relative;
+            width: 250px;
+            height: 350px;
+            margin: 40px auto;
+            /* 定义3D视角 */
+            perspective: 1200px;
+        }
+
+        .img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 350px;
+            transition: transform 1s ease-in-out;
+            backface-visibility: hidden;
+
+        }
+
+        .img:first-child,
+        .container:hover .img:last-child {
+            transform: rotateY(0);
+        }
+
+        /* 
+        hover时：
+        正面： 0 -> 180deg
+        反面：-180deg -> 0 
+
+
+        首页是正面的原因是背面-180deg且设置了背面不可见
+        
+        */
+
+        .img:last-child {
+            transform: rotateY(-180deg);
+        }
+
+
+        .container:hover .img:first-child {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="正面.jpg" alt="正面" class="img">
+        <img src="反面.jpg" alt="反面" class="img">
+    </div>
+</body>
+
+</html>
